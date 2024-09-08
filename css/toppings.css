@@ -72,15 +72,15 @@
     border: 1px solid transparent;
     padding: 8px 24px;
     border-radius: 32px;
-    background-color: var(--white);
+    background-color: red;
     font-weight: 400;
     font-size: 14px;
-    color: var(--orange);
+    color: white;
     transition: 0.3s;
     cursor: pointer;
   }
   .toppings__reset:hover {
-    background-color: var(--orange);
+    background-color: rgb(245, 69, 69);
     color: var(--white);
   }
   .toppings__reset:focus-visible {
