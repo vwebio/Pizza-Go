@@ -1,4 +1,6 @@
 import { toUpperCaseFirstLetter } from "./helper.js";
+import { modalController } from "./modalController.js";
+import { renderModalPizza } from "./renderModalPizza.js";
 import { renderToppings } from "./renderToppings.js";
 import { getData } from "./serviceApi.js";
 
@@ -58,6 +60,17 @@ export const renderPizzas = async (toppings) => {
   
       // Вставляем все элементы списка в элемент с классом "pizza__list"
     pizzaList.append(...items);
+
+    // Обработчик события клика на кнопку "Выбрать"
+    modalController({
+      modal: '.modal-pizza',
+      btnOpen: '.card__btn',
+      btnClose: '.modal__close',
+      async cbOpen(btnOpen) {
+        const pizza = await getData(`products/${btnOpen.dataset.id}`);
+        renderModalPizza(pizza);
+      },
+    })
     
   } else {
     pizzaTitle.textContent = 'Такой пиццы у нас нет :(';
